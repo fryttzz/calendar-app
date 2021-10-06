@@ -21,7 +21,7 @@ const DaysRow = () => {
         <span>SEX</span>
       </div>
       <div className="ColumnDays">
-        <span>SAB</span>
+        <span>SÁB</span>
       </div>
     </div>
   );
