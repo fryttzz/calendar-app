@@ -50,3 +50,18 @@
 #RowWeek6 {
     grid-area: RowWeek6;
 }
+
+.OutOfMonth {
+    color: #c4c4c4;
+}
+
+.SelectedDay {
+    border: #c4c4c4 solid 1px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.CurrentDay {
+    background-color: #f7f7f8;
+    color: #059541;
+}
