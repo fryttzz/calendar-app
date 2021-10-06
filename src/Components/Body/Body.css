@@ -1,0 +1,52 @@
+#Body {
+    display: grid;
+    grid-template-areas: "DaysRows" "RowWeek1" "RowWeek2" "RowWeek3" "RowWeek4" "RowWeek5" "RowWeek6";
+    height: 100%;
+}
+
+#DaysRow {
+    grid-area: "DaysRows";
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #262D33;
+    font-weight: bold;
+}
+
+.RowWeek {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ColumnDays {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+}
+
+#RowWeek1 {
+    grid-area: RowWeek1;
+}
+
+#RowWeek2 {
+    grid-area: RowWeek2;
+}
+
+#RowWeek3 {
+    grid-area: RowWeek3;
+}
+
+#RowWeek4 {
+    grid-area: RowWeek4;
+}
+
+#RowWeek5 {
+    grid-area: RowWeek5;
+}
+
+#RowWeek6 {
+    grid-area: RowWeek6;
+}
