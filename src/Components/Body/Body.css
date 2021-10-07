@@ -2,6 +2,7 @@
     display: grid;
     grid-template-areas: "DaysRows" "RowWeek1" "RowWeek2" "RowWeek3" "RowWeek4" "RowWeek5" "RowWeek6";
     height: 100%;
+    margin: 25px;
 }
 
 #DaysRow {

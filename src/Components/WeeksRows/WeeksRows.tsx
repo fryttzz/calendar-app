@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./WeeksRows.css";
 import moment from "moment";
 const WeeksRows = () => {
@@ -59,8 +58,6 @@ const WeeksRows = () => {
   const weekRows = [1, 2, 3, 4, 5, 6];
   const daysColumns = [1, 2, 3, 4, 5, 6, 7];
   var indexFullMonth = -1;
-
-  const [currentDay, setCurrentDay] = useState(moment().format("DD"));
   return (
     <div id="WeeksRows">
       {weekRows.map((i) => {
@@ -73,9 +70,6 @@ const WeeksRows = () => {
                   <div
                     className="CardNotCurrentDay"
                     key={`CardDay${indexFullMonth}`}
-                    onClick={() =>
-                      setCurrentDay(fullMonth[indexFullMonth].dayN)
-                    }
                   >
                     <span>{fullMonth[indexFullMonth].dayN}</span>
                   </div>
@@ -91,7 +85,6 @@ const WeeksRows = () => {
           </div>
         );
       })}
-      <div className="CurrenteDate">{currentDay}</div>
     </div>
   );
 };
