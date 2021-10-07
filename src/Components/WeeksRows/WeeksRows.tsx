@@ -1,5 +1,4 @@
 import "./WeeksRows.css";
-import CardDay from "../CardDay/CardDay";
 import moment from "moment";
 const WeeksRows = () => {
   var previousMonth = moment()
@@ -8,7 +7,7 @@ const WeeksRows = () => {
     .format("YYYY-MM-DD");
   var nextMonth = moment().add(1, "M").startOf("month").format("YYYY-MM-DD");
   var daysInMonth = moment().daysInMonth();
-  var fullMonth = [];
+  var fullMonth: Array<{ dayN: string; dayT: string }> = [];
   var previousMonthLastDays: Array<{ dayN: string; dayT: string }> = [];
   var nextMonthFirtDays = [];
   var startOfMonth = moment().startOf("month").format("YYYY-MM-DD");
@@ -49,21 +48,25 @@ const WeeksRows = () => {
   }
 
   fullMonth = previousMonthLastDays.concat(fullMonth).concat(nextMonthFirtDays);
-  const weekRows = [1, 2, 3, 4, 5, 6, 7];
-  console.log(fullMonth);
+  const weekRows = [1, 2, 3, 4, 5, 6];
+  const daysColumns = [1, 2, 3, 4, 5, 6, 7];
+  var indexFullMonth = -1;
   return (
     <div id="WeeksRows">
-      {weekRows.map((i) => (
-        <div id={"RowWeek" + i} className="RowWeek" key={i}>
-          <CardDay />
-          <CardDay />
-          <CardDay />
-          <CardDay />
-          <CardDay />
-          <CardDay />
-          <CardDay />
-        </div>
-      ))}
+      {weekRows.map((i) => {
+        return (
+          <div id={"RowWeek" + i} className="RowWeek" key={i}>
+            {daysColumns.map((days) => {
+              indexFullMonth++;
+              return (
+                <div className="CardDay">
+                  <span>{fullMonth[indexFullMonth].dayN}</span>
+                </div>
+              );
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 };
