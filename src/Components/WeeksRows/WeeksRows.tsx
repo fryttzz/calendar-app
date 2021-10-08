@@ -1,12 +1,16 @@
 import "./WeeksRows.css";
 import moment from "moment";
 const WeeksRows = () => {
-  var previousMonth = moment()
+  var startOfMonth = moment().startOf("month").format("YYYY-MM-DD");
+  var previousMonth = moment(startOfMonth)
     .subtract(1, "M")
     .endOf("month")
     .format("YYYY-MM-DD");
-  var nextMonth = moment().add(1, "M").startOf("month").format("YYYY-MM-DD");
-  var daysInMonth = moment().daysInMonth();
+  var nextMonth = moment(startOfMonth)
+    .add(1, "M")
+    .startOf("month")
+    .format("YYYY-MM-DD");
+  var daysInMonth = moment(startOfMonth).daysInMonth();
   var fullMonth: Array<{ dayN: string; dayT: string; current: boolean }> = [];
   var previousMonthLastDays: Array<{
     dayN: string;
@@ -14,7 +18,6 @@ const WeeksRows = () => {
     current: boolean;
   }> = [];
   var nextMonthFirtDays = [];
-  var startOfMonth = moment().startOf("month").format("YYYY-MM-DD");
 
   for (let index = 0; index < daysInMonth; index++) {
     fullMonth.push({
@@ -55,7 +58,12 @@ const WeeksRows = () => {
   }
 
   fullMonth = previousMonthLastDays.concat(fullMonth).concat(nextMonthFirtDays);
-  const weekRows = [1, 2, 3, 4, 5, 6];
+  const weekRows = [];
+
+  for (let index = 0; index < fullMonth.length / 7; index++) {
+    weekRows.push(index);
+  }
+
   const daysColumns = [1, 2, 3, 4, 5, 6, 7];
   var indexFullMonth = -1;
   return (
